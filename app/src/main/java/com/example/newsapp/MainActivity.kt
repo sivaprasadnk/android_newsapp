@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager= LinearLayoutManager(this)
 
+
+
         binding.btnAdd.setOnClickListener{
             Log.d("news length",newsList.size.toString() )
              val newsItem = News(
