@@ -48,4 +48,9 @@ class NewsAdaptor(
     override fun getItemCount(): Int {
         return newsList.size
     }
+
+    fun updateList(list: List<News>){
+        newsList = list
+        notifyItemInserted(newsList.size-1)
+    }
 }
