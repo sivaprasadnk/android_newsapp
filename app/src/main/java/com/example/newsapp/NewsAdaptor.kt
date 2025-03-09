@@ -4,12 +4,17 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.databinding.NewsItemBinding
 
 class NewsAdaptor(
-    var newsList: List<News>
+    var newsList: List<News>,
+//    val detailsFragment: DetailsFragment
 ) : RecyclerView.Adapter<NewsAdaptor.NewsViewHolder>() {
 
     inner class NewsViewHolder(val binding: NewsItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -32,9 +37,7 @@ class NewsAdaptor(
             )
             cardView.setOnClickListener { it ->
                 Toast.makeText(it.context, tvTitle.text.toString(), Toast.LENGTH_SHORT).show()
-                val intent = Intent(it.context, DetailsActivity::class.java)
-                intent.putExtra("EXTRA_NEWS", news)
-                it.context.startActivity(intent)
+//                it.findNavController().navigate(detailsFragment.id)
             }
         }
     }
