@@ -1,6 +1,7 @@
 package com.example.newsapp
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,6 @@ import com.example.newsapp.databinding.NewsItemBinding
 
 class NewsAdaptor(
     var newsList: List<News>,
-//    val detailsFragment: DetailsFragment
 ) : RecyclerView.Adapter<NewsAdaptor.NewsViewHolder>() {
 
     inner class NewsViewHolder(val binding: NewsItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -37,7 +37,10 @@ class NewsAdaptor(
             )
             cardView.setOnClickListener { it ->
                 Toast.makeText(it.context, tvTitle.text.toString(), Toast.LENGTH_SHORT).show()
-//                it.findNavController().navigate(detailsFragment.id)
+                val bundle = Bundle().apply {
+                    putSerializable("NEWS_ITEM", news)
+                }
+                it.findNavController().navigate(R.id.detailsFragment, bundle)
             }
         }
     }

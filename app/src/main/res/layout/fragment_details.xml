@@ -4,8 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_margin="16dp"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".DetailsActivity">
@@ -13,7 +11,7 @@
     <TextView
         android:id="@+id/tvDetailsTitle"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
@@ -26,6 +24,7 @@
         android:layout_width="wrap_content"
         android:textSize="16sp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDetailsTitle"
         app:layout_constraintBottom_toTopOf="@id/tvDetailsContent"

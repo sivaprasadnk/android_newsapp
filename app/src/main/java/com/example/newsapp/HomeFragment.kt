@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.databinding.ActivityMainBinding
 import com.example.newsapp.databinding.FragmentHomeBinding
@@ -32,9 +33,8 @@ class HomeFragment() : Fragment() {
         val newsList = mutableListOf<News>(
             News(generateRandomTitle(), generateRandomAuthor(), generateRandomContent())
         )
-
-//        val adapter = NewsAdaptor(newsList, detailsFragmentRef)
         val adapter = NewsAdaptor(newsList)
+//        val adapter = NewsAdaptor(newsList)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
 
