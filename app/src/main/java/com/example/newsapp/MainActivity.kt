@@ -38,16 +38,23 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.navView.setNavigationItemSelectedListener {
-            Toast.makeText(applicationContext, " Clicked ${it.title}", Toast.LENGTH_SHORT).show()
+            binding.drawerLayout.closeDrawers()
+
+            when (it.title) {
+                "Home" -> {
+                    findNavController(R.id.navHostFragmentContainerView).navigate(R.id.homeFragment)
+//                    Toast.makeText(applicationContext, " Clicked home", Toast.LENGTH_SHORT).show()
+                }
+
+                else -> {
+                    findNavController(R.id.navHostFragmentContainerView).navigate(R.id.testHomeFragment)
+
+                }
+
+
+            }
             true
         }
-
-
-
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(binding.flView.id, homeFragment)
-//            commit()
-//        }
 
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -55,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left,systemBars.top,systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
